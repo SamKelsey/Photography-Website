@@ -1,0 +1,517 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url("Images/IMG_8696-min.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* --------------------------------
+ Burger Menu
+ --------------------------------*/
+.checkbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 3;
+}
+
+.burger-menu-container {
+    position: fixed;
+    top:0;
+    right: 0;
+    margin: 2%;
+    background-color: rgba(163, 139, 101, 0.5);
+    border-radius: 10px;
+    width: 70px;
+    height: 70px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+
+.burger-line {
+    z-index: 2;
+}
+
+.burger-line div {
+    position: relative;
+    width: 30px;
+    height: 2px;
+    background-color: #f1e9db;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+}
+
+.burger-line div:after,
+.burger-line div:before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 30px;
+    height: 2px;
+    background-color: inherit;
+}
+
+.burger-line div:after {
+    top: 10px;
+}
+
+.checkbox:checked + .burger-line > div {
+    transform: rotate(135deg);
+}
+
+/* Turn lines into an x */
+.checkbox:checked + .burger-line > div:before,
+.checkbox:checked + .burger-line > div:after {
+    top: 0;
+    transform: rotate(90deg);
+    transition: all 0.4s ease;
+}
+
+/* Rotate on hover, if checked */
+.checkbox:checked:hover + .burger-line > div {
+    transform: rotate(225deg);
+} 
+
+/* Adding menu if burger box selected */
+
+.burger-menu-container .links-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #a38b65;
+    opacity: 0.8;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    transform: scale(0);
+    transition: all 0.4s ease;
+}
+
+.checkbox:checked ~ .links-container {
+    transform: scale(0.8);
+}
+
+.burger-menu-container .links-container ul {
+    text-align: center;
+    list-style: none;
+}
+
+.burger-menu-container .links-container ul li {
+    color: #f1e9db;
+    font-size: 2rem;
+    margin: 1.5rem;
+}
+
+.links-container a {
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    color: inherit;
+    text-decoration: none;
+    color: #b8b4a6;
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s;
+}
+
+.links-container a:hover {
+    color: #f1efe0; 
+}
+
+.links-container ul li ul {
+    display: none;
+}
+
+.links-container ul li:hover ul {
+    display: block;
+}
+
+.links-container ul li ul li a {
+    font-size: 1.5rem;
+}
+
+
+/* --------------------------------
+ Navigation Bar 
+ --------------------------------*/
+.nav-wrapper {
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    display: flex;
+    justify-content: space-between;
+    padding: 1% 2%;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.left-side {
+    color: #f1e9db;
+    min-width: 150px
+}
+
+.right-side {
+    width:40%;
+    min-width:450px;
+}
+
+.right-side ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.right-side ul li {
+    letter-spacing: 0.16rem;
+}
+
+.right-side a {
+    text-decoration: none;
+    color: #aaa597;
+    transition: color 0.5s;
+}
+
+.right-side a:hover {
+    color:#716a5c;
+}
+
+.right-side ul li ul {
+    display: none;
+}
+
+.right-side ul li:hover ul {
+    display: block;
+}
+
+.right-side ul li ul li {
+    font-size: 0.9rem;
+    letter-spacing: 0;
+    margin: 0.5rem 0;
+}
+
+/*---------------------------------
+Body Text 
+---------------------------------*/
+.body-text {
+    font-family: 'Montserrat', sans-serif;
+    color:#f1e9db;
+    font-size: 3vw;
+    padding: 10% 2% 5% 2%;
+}
+
+/*---------------------------------
+ Bottom arrow 
+ --------------------------------*/
+.arrow-table {
+    margin-top:12%;
+    text-align:center;
+    bottom: 2%;
+    width:100%;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.down-arrow svg {
+    width:50px;
+    fill: #f1e9db;
+    opacity:50%;
+    transition: opacity 0.5s, width 0.5s;
+}
+
+.down-arrow svg:hover {
+    opacity:100%;
+    width: 60px;
+}
+
+/*---------------------------------
+Potfolios Section - Home Page
+---------------------------------*/
+.portfolios-section {
+    background-color: rgba(180, 181, 201, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.portfolios-section h1 {
+    text-align: center;
+    padding: 4rem;
+    color: #f1e9db;
+    font-family: 'Quicksand', sans-serif;
+    font-size:3rem;
+}
+
+.portfolio-tiles {
+    margin: auto;
+    padding: 0 10%;
+    display: grid;
+    grid-column-gap: 4%;
+    grid-template-columns: 1fr 1fr 1fr;
+    min-width: 900px;
+}
+
+.portfolio-tile {
+    margin: 0 0 10% 0;
+    text-align: center;
+    border: 2px solid #f1e9db;
+    border-radius: 3%;
+}
+
+.landscape-tile {
+    background-image: url("Images/canada-thumbnail.JPG");
+    background-size: cover;
+    background-position: center;
+}
+
+.property-tile {
+    background-image: url("Images/IMG_8263-min.JPG");
+    background-size:cover;
+    background-position: center;
+}
+
+.pets-tile {
+    background-image: url("Images/IMG_0075-Edit-min.JPG");
+    background-size: cover;
+    background-position: center;
+}
+
+.portfolio-tile h2 {
+    margin: 40% auto auto 0;
+    font-size: 2vw;
+    padding: 10%;
+    color: #f1e9db;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.portfolio-view-link {
+    padding: 0.5vw 1.5vw;
+    font-family: 'Quicksand', sans-serif;
+    font-weight:bold;
+    font-size: 1vw;
+    color: #f1e9db;
+    text-decoration:none;
+    border-radius: 5px;
+    border: 2px solid #f1e9db;
+    background-color:transparent;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.portfolio-view-link:hover {
+    background-color: #f1e9db;
+    color: #716a5c;
+}
+
+.portfolio-tile-text {
+    margin:0 0 5% 0;
+}
+
+/*---------------------------------
+Trips - Home Page
+---------------------------------*/
+.trips-section {
+    margin: 5% 0;
+    background-color: rgba(163, 139, 101, 0.7); 
+    backdrop-filter: blur(5px);
+}
+
+.trips-section h1 {
+    text-align: center;
+    color: #f1e9db;
+    padding: 4rem;
+    font-family: 'Quicksand', sans-serif;
+    font-size:3rem;
+}
+
+.trips-tiles {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 25%;
+}
+
+.trip-tile {
+    position: relative;
+    margin: 2%;
+    width: 24vw;
+    height: 21vw;
+    text-align: center;
+    border: 2px solid #f1e9db;
+    border-radius: 3%;
+}
+
+.canada-trip-tile {
+    background-image: url(Images/IMG_8758-min.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.NC500-trip-tile {
+    background-image: url(Images/NC500-thumbnail.JPG);
+    background-size: cover;
+    background-position: center;
+}
+
+.trip-tile-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 6% auto;
+    bottom: 0;
+}
+
+.trip-tile-text a {
+    padding: 0.5vw 1.5vw;
+    font-family: 'Quicksand', sans-serif;
+    font-weight:bold;
+    font-size: 1vw;
+    color: #f1e9db;
+    text-decoration:none;
+    border-radius: 5px;
+    border: 2px solid #f1e9db;
+    background-color:transparent;
+    transition: background-color 0.5s, color 0.5s;
+
+}
+
+.trip-tile-text h2 {
+    margin: 40% auto 0 0;
+    font-size: 2vw;
+    padding: 7%;
+    color: #f1e9db;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.trip-tile-text a:hover {
+    background-color: #f1e9db;
+    color: #716a5c;
+}
+
+/*---------------------------------
+ Media Queries 
+ --------------------------------*/
+
+@media (max-width: 1150px) {
+
+    /* Welcome Section */
+    .right-side {
+        display: none;
+    }
+
+    .left-side {
+        color: #a38b65;
+        opacity:0.7;
+        min-width: 0;
+    }
+
+    .body-text {
+        color: #a38b65;
+        opacity: 0.7;
+        font-size: 6vw;
+        text-align: center;
+        padding: 20% 0 0 0;
+    }
+
+    .burger-menu-container {
+        display: flex;
+    }
+
+    
+
+    /* Porfolio Sectiion */
+    .portfolio-tiles {
+        grid-template-columns: 0.5fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        justify-content: center;
+        min-width: 450px;
+    }
+
+    .portfolio-tile {
+        min-width:400px;
+        height: 50vw;
+        max-height: 325px;
+        margin: auto auto 10% auto;
+        position: relative;
+        min-height: 300px;
+    }
+
+    .portfolio-tile-text h2 {
+        padding: 0;
+        margin: 0;
+        font-size: 30px;
+        padding: 3%;
+    }
+
+    .portfolio-view-link {
+        font-size: 20px;
+        padding: 6px 9px;
+    }
+
+    .portfolio-tile-text {
+        position: absolute;
+        text-align: center;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 4%;
+    }
+
+    /* Trips Section  */
+
+    .trips-tiles {
+        display: block;
+        margin:0;
+        width: 8vw;
+        padding: 0;
+        width: 100%;
+    }
+
+    .trip-tile {
+        margin: 0;
+        padding: 0;
+        width: 70%;
+        margin: 0 auto 5% auto;
+        height: 50vw;
+        max-height: 350px;
+        min-width: 100px;
+        max-width: 400px;
+    }
+
+    .trip-tile-text {
+        padding: 0;
+        margin: 0 20%;
+        margin-bottom: 4%;
+    }
+
+    .trip-tile-text h2 {
+        font-size: 30px;
+    }
+
+    .trip-tile-text a {
+        font-size: 20px;
+        padding: 6px 9px;
+    }
+}
